@@ -1,0 +1,124 @@
+﻿@page "/"
+@using Car_Rental.Business.Classes;
+@using Car_Rental.Common.Interfaces;
+@using Car_Rental.Common.Enums;
+@inject BookingProcessor bp
+
+<PageTitle>Car Rental Assignment</PageTitle>
+
+<h1>Car Rental Assignment</h1>
+
+<div class="row">
+    <h6>Customers</h6>
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr class="table-dark">
+                <th>SSN</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>123456</th>
+                <td>Nguyen</td>
+                <td>Hao</td>
+            </tr>
+            <tr>
+                <th>123456</th>
+                <td>Nguyen</td>
+                <td>Hao</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br />
+<div class="row">
+    <h6>Vehicles</h6>
+    <table class="table table-hover border">
+        <thead>
+            <tr class="table-dark">
+                <th>RegNo</th>
+                <th>Make</th>
+                <th>Odometer</th>
+                <th>Cost Km</th>
+                <th>Vehicle Type</th>
+                <th>$ Day</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>ABC123</th>
+                <td>Volvo</td>
+                <td>10000</td>
+                <td>1</td>
+                <td>SUV</td>
+                <td>500</td>
+                <td><span class="badge bg-dark rounded-pill">Available</span></td>
+            </tr>
+            <tr>
+                <th>ABC123</th>
+                <td>Volvo</td>
+                <td>10000</td>
+                <td>1</td>
+                <td>SUV</td>
+                <td>500</td>
+                <td><span class="badge bg-danger rounded-pill">Booked</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br />
+<div class="row">
+    <h6>Bookings</h6>
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr class="table-dark">
+                <th>RegNo</th>
+                <th>Customer</th>
+                <th>Km Rented</th>
+                <th>Km Returned</th>
+                <th>Rented</th>
+                <th>Returned</th>
+                <th>Cost</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>ABC123</th>
+                <td>Nguyen Hao</td>
+                <td>10000</td>
+                <td></td>
+                <td>29/05/2023</td>
+                <td></td>
+                <td>500</td>
+                <td><span class="badge bg-success">Closed</span></td>
+            </tr>
+            <tr>
+                <th>ABC123</th>
+                <td>Nguyen Hao</td>
+                <td>10000</td>
+                <td> </td>
+                <td>29/05/2023</td>
+                <td> </td>
+                <td>500</td>
+                <td><span class="badge bg-danger">Open</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<form>
+    <div class="form-group">
+        <label for="customerName">Name:</label>
+        <input type="text" class="form-control" id="customerName"  />
+    </div>
+    <div class="form-group">
+        <label for="customerSSN">Social Security Number:</label>
+        <input type="text" class="form-control" id="customerSSN"  />
+    </div>
+    <button type="button" class="btn btn-primary">Register</button>
+</form>
