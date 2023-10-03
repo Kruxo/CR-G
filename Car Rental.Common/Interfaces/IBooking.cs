@@ -1,4 +1,6 @@
-﻿namespace Car_Rental.Common.Interfaces;
+﻿using Car_Rental.Common.Enums;
+
+namespace Car_Rental.Common.Interfaces;
 
 public interface IBooking
 {
@@ -6,10 +8,10 @@ public interface IBooking
     public string Customer { get; set; }
     public int KmRented { get; set; }
     public int KmReturned { get; set; }
-    public string DateRented { get; set; }
-    public string DateReturned { get; set; }
-    //public int Cost { get; set; }  kostnaden tas fram i klassen med hjälp av beräkning för returnvehicle 
-    public int Status { get; set; }
+    public DateTime DaysRented { get; set; }
+    public DateTime DaysReturned { get; set; }
+    public int Cost { get; set; }  
+    public BookingStatuses Status { get; set; }
 
     void ReturnVehicle();
    

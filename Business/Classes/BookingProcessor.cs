@@ -13,16 +13,15 @@ public class BookingProcessor
 
     public IEnumerable<Customer> GetCustomers()
     {
-        return 
-    }
-    public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default)
-    {
+        var allPersons = _db.GetPersons();
 
-    }
-    public IEnumerable<IBooking> GetBookings()
-    {
+        var customers = allPersons.OfType<Customer>(); //filtrerar och konverterat till customer objekt
 
+        return customers;
     }
+
+    public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default) => _db.GetVehicles(status);
+    public IEnumerable<IBooking> GetBookings() => _db.GetBookings();
 
     //BookingProcessor klassens metoder anropar metoder i CollectionData klassen i Data projektet för
     //att hämta data som skickas vidare till gränssnittet i WebAssembly projektet

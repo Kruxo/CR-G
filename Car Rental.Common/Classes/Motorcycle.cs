@@ -1,4 +1,5 @@
-﻿using Car_Rental.Common.Interfaces;
+﻿using Car_Rental.Common.Enums;
+using Car_Rental.Common.Interfaces;
 
 namespace Car_Rental.Common.Classes;
 
@@ -6,13 +7,13 @@ public class Motorcycle : IVehicle
 {
     public string RegNo { get; set; }
     public string CarMake { get; set; }
-    public string OdoMeter { get; set; }
-    public string CostKm { get; set; }
-    public string VType { get; set; }
-    public string CostDay { get; set; }
-    public int VStatus { get; set; }
+    public int OdoMeter { get; set; }
+    public int CostKm { get; set; }
+    public VehicleTypes VType { get; set; }
+    public int CostDay { get; set; }
+    public VehicleStatuses VStatus { get; set; }
 
-    public Motorcycle(string regNo, string carMake, string odoMeter, string costKm, string vType, string costDay, int vStatus)
+    public Motorcycle(string regNo, string carMake, int odoMeter, int costKm, VehicleTypes vType, int costDay, VehicleStatuses vStatus)
     {
         RegNo = regNo;
         CarMake = carMake;
