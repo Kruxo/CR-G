@@ -11,9 +11,6 @@ public interface IBooking
     public DateTime StartRent { get; set; }
     public DateTime EndRent { get; set; }
     public BookingStatuses Status { get; set; }
-
-    public void ReturnVehicle(IVehicle vehicle, IBooking booking);
-
     public double GetCost(IVehicle vehicle, IBooking booking);
 
 

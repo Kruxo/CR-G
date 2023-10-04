@@ -24,39 +24,14 @@ public class Booking : IBooking
         EndRent = endRent;
         Status = status;
     }
-
-    private double _cost;
-
-    public void ReturnVehicle(IVehicle vehicle, IBooking booking)
+    public double GetCost(IVehicle vehicle, IBooking booking)
     {
-        //Test
-        //DateTime startDate = new DateTime(2023, 10, 1);
-        //DateTime endDate = new DateTime(2023, 10, 4);
-
         DateTime startDate = booking.StartRent;
         DateTime endDate = booking.EndRent;
 
-        /*if (startDate == null || endDate == null) 
-        {
-            return;
-        } */
-
         double daysDifference = Math.Round((endDate - startDate).TotalDays);
-
-        _cost = daysDifference * vehicle.CostDay + booking.KmReturned * vehicle.CostKm;
-
-    }
-
-    public double GetCost(IVehicle vehicle, IBooking booking)
-    {
-        ReturnVehicle(vehicle, booking);
-        return _cost;
-    }
-
-    public void ReturnVehicle()
-    {
-        throw new NotImplementedException();
-    }
+        return daysDifference * vehicle.CostDay + booking.KmReturned * vehicle.CostKm;
+    } 
 
 }
 
