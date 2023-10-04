@@ -23,7 +23,7 @@ public class CollectionData : IData
         _vehicles.Add(new Car("RIP666", "Wolkswagen", 10000, 2, VehicleTypes.Minivan, 500, (VehicleStatuses)1));
         _vehicles.Add(new Motorcycle("COW999", "Yamaha", 5000, 3, VehicleTypes.Motorcycle, 50, (VehicleStatuses)2));
 
-        _bookings.Add(new Booking("RIP666", "Nguyen Hao (123456)", 1000.0, 1000.0, DateTime.Today, DateTime.Now, (BookingStatuses)1));
+        _bookings.Add(new Booking("RIP666", "Nguyen Hao (123456)", 1000.0, 0, DateTime.Today, DateTime.Now, (BookingStatuses)1));
         _bookings.Add(new Booking("LOL777", "Nguyen Pao (654321)", 4000.0, 4000.0, DateTime.Today, DateTime.Now, (BookingStatuses)2));
     }
 

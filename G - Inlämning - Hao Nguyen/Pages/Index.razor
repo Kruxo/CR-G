@@ -95,7 +95,14 @@
                     <td>@b.KmReturned</td>
                     <td>@b.StartRent</td>
                     <td>@b.EndRent</td>
-                    <td>@b.GetCost()</td>
+                    
+                    @foreach(var v in bp.GetVehicles())
+                    {
+                        @if (v.RegNo == b.RegNo)
+                        {
+                            <td>@b.GetCost(v, b)</td>
+                        }
+                    }
                     @if (b.Status == BookingStatuses.Closed)
                     {
                         <td><span class="badge bg-success rounded-pill">@b.Status</span></td>

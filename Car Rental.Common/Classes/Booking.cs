@@ -12,7 +12,6 @@ public class Booking : IBooking
     public double KmReturned { get; set; }
     public DateTime StartRent { get; set; }
     public DateTime EndRent { get; set; }
-    //public double Cost { get; set; }
     public BookingStatuses Status { get; set; }
 
     public Booking(string regNo, string customer, double kmRent, double kmReturned, DateTime startRent, DateTime endRent, BookingStatuses status)
@@ -23,42 +22,34 @@ public class Booking : IBooking
         KmReturned = kmReturned;
         StartRent = startRent;
         EndRent = endRent;
-        //GetCost(cost);
         Status = status;
     }
 
-    public double _cost;
-    /*public IVehicle Vehicle { get; set; } 
-    public IBooking Book { get; set; }
-
-    public void CalculateCost()
-    {
-        ReturnVehicle(Vehicle, Book);
-    }*/
+    private double _cost;
 
     public void ReturnVehicle(IVehicle vehicle, IBooking booking)
     {
-        DateTime startDate = new DateTime(2023, 10, 1);
-        DateTime endDate = new DateTime(2023, 11, 4);
+        //Test
+        //DateTime startDate = new DateTime(2023, 10, 1);
+        //DateTime endDate = new DateTime(2023, 10, 4);
 
-        //DateTime startDate = booking.StartRent;
-        //DateTime endDate = booking.EndRent;
+        DateTime startDate = booking.StartRent;
+        DateTime endDate = booking.EndRent;
 
-        //double daysDifference = (endDate - startDate).TotalDays;
+        /*if (startDate == null || endDate == null) 
+        {
+            return;
+        } */
 
-        double daysDifference = DateDifference(startDate, endDate);
+        double daysDifference = Math.Round((endDate - startDate).TotalDays);
 
         _cost = daysDifference * vehicle.CostDay + booking.KmReturned * vehicle.CostKm;
 
     }
-    public static double DateDifference(DateTime startDate, DateTime endDate)
-    {
-        TimeSpan difference = endDate.Subtract(startDate);
-        return Math.Round(difference.TotalDays);
-    }
 
-    public double GetCost()
+    public double GetCost(IVehicle vehicle, IBooking booking)
     {
+        ReturnVehicle(vehicle, booking);
         return _cost;
     }
 
@@ -66,15 +57,6 @@ public class Booking : IBooking
     {
         throw new NotImplementedException();
     }
-
-    /* public void ReturnVehicle(IVehicle vehicle, DateTime daysRented, DateTime daysReturned, int kmRented)
-   {
-
-       int rented = (int)(daysReturned - daysRented).TotalDays;
-
-       double Cost = rented * vehicle.CostDay + kmRented * vehicle.CostKm;
-   } */
-
 
 }
 

@@ -10,13 +10,11 @@ public interface IBooking
     public double KmReturned { get; set; }
     public DateTime StartRent { get; set; }
     public DateTime EndRent { get; set; }
-    //public double Cost { get; set; }  
     public BookingStatuses Status { get; set; }
 
-    void ReturnVehicle();
+    public void ReturnVehicle(IVehicle vehicle, IBooking booking);
 
-    public double GetCost();
+    public double GetCost(IVehicle vehicle, IBooking booking);
 
-    public void CalculateCost();
 
 }
