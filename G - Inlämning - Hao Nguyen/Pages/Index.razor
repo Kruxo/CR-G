@@ -91,11 +91,11 @@
                 <tr>
                     <th>@b.RegNo</th>
                     <td>@b.Customer</td>
-                    <td>@b.KmRented</td>
+                    <td>@b.KmRent</td>
                     <td>@b.KmReturned</td>
-                    <td>@b.DaysRented</td>
-                    <td>@b.DaysReturned</td>
-                    <td>@b.Cost</td>
+                    <td>@b.StartRent</td>
+                    <td>@b.EndRent</td>
+                    <td>@b.GetCost()</td>
                     @if (b.Status == BookingStatuses.Closed)
                     {
                         <td><span class="badge bg-success rounded-pill">@b.Status</span></td>
@@ -109,6 +109,7 @@
         </tbody>
     </table>
 </div>
+
 
 <!-- 
 

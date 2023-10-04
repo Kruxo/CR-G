@@ -8,9 +8,9 @@ public class Motorcycle : IVehicle
     public string RegNo { get; set; }
     public string CarMake { get; set; }
     public int OdoMeter { get; set; }
-    public int CostKm { get; set; }
+    public double CostKm { get; set; }
     public VehicleTypes VType { get; set; }
-    public int CostDay { get; set; }
+    public double CostDay { get; set; }
     public VehicleStatuses VStatus { get; set; }
 
     public Motorcycle(string regNo, string carMake, int odoMeter, int costKm, VehicleTypes vType, int costDay, VehicleStatuses vStatus)
