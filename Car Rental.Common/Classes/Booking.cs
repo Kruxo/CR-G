@@ -9,12 +9,12 @@ public class Booking : IBooking
     public string RegNo { get; set; }
     public string Customer { get; set; }
     public double KmRent { get; set; }
-    public double KmReturned { get; set; }
-    public DateTime StartRent { get; set; }
-    public DateTime EndRent { get; set; }
+    public double? KmReturned { get; set; }
+    public DateTime? StartRent { get; set; }
+    public DateTime? EndRent { get; set; }
     public BookingStatuses Status { get; set; }
 
-    public Booking(string regNo, string customer, double kmRent, double kmReturned, DateTime startRent, DateTime endRent, BookingStatuses status)
+    public Booking(string regNo, string customer, double kmRent, double? kmReturned, DateTime? startRent, DateTime? endRent, BookingStatuses status)
     {
         RegNo = regNo;
         Customer = customer;
@@ -24,14 +24,22 @@ public class Booking : IBooking
         EndRent = endRent;
         Status = status;
     }
-    public double GetCost(IVehicle vehicle, IBooking booking)
-    {
-        DateTime startDate = booking.StartRent;
-        DateTime endDate = booking.EndRent;
 
-        double daysDifference = Math.Round((endDate - startDate).TotalDays);
-        return daysDifference * vehicle.CostDay + booking.KmReturned * vehicle.CostKm;
-    } 
+    public double? GetCost(IVehicle vehicle, IBooking booking)
+    {
+        if (booking.StartRent == null || booking.EndRent == null || booking.KmReturned == null)
+        {
+            return null;
+        }
+
+        DateTime startDate = booking.StartRent.Value;
+        DateTime endDate = booking.EndRent.Value;
+
+        double daysDifference = (endDate - startDate).TotalDays;
+        return daysDifference * vehicle.CostDay + booking.KmReturned.Value * vehicle.CostKm;
+    }
 
 }
+
+
 
