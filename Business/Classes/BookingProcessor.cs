@@ -23,6 +23,4 @@ public class BookingProcessor
     public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default) => _db.GetVehicles(status);
     public IEnumerable<IBooking> GetBookings() => _db.GetBookings();
 
-    //BookingProcessor klassens metoder anropar metoder i CollectionData klassen i Data projektet för
-    //att hämta data som skickas vidare till gränssnittet i WebAssembly projektet
 }
